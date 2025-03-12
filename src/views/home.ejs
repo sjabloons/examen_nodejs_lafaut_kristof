@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <script src="js/main.js" defer></script>
+        <title><%=title %></title>
+    </head>
+    <body>
+        <h1><%=title %></h1>
+        <div id="error"></div>
+        <div class="filter">
+            <form id="formtaal">
+                <label for="taal">filter op taal:</label>
+                <select id="taal" name="taal">
+                    <option value="Javascript">Javascript</option>
+                    <option value="Python">Python</option>
+                    <option value="SQL">SQL</option>
+                    <option value="GO">GO</option>
+                    <option value="C++">C++</option>
+                    <option value="Bash">Bash</option>
+                    <option value="Swift">Swift</option>
+                </select>
+            </form>
+
+            <form id="formtags">
+                <label for="tags">filter op tags:</label>
+                <select id="tags" name="tags">
+                    <option value="async">Async</option>
+                    <option value="fetch">Fetch</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="list">List</option>
+                    <option value="comprehension">comprehension</option>
+                    <option value="http">Http</option>
+                    <option value="server">Server</option>
+                    <option value="python">Python</option>
+                    <option value="react">React</option>
+                    <option value="component">Component</option>
+                    <option value="sql">SQL</option>
+                    <option value="database">Database</option>
+                    <option value="query">Query</option>
+                    <option value="goroutine">Goroutine</option>
+                    <option value="concurrency">concurrency</option>
+                    <option value="go">Go</option>
+                    <option value="rust">Rust</option>
+                    <option value="struc">Struc</option>
+                    <option value="data">Data</option>
+                    <option value="lambda">Lambda</option>
+                    <option value="c++">C++</option>
+                    <option value="functional">Functional</option>
+                    <option value="loop">Loop</option>
+                    <option value="bash">Bash</option>
+                    <option value="shell">Shell</option>
+                    <option value="closure">Closure</option>
+                    <option value="swift">Swift</option>
+                </select>
+            </form>
+        </div>
+        <div id="snippets"></div>
+    </body>
+</html>
