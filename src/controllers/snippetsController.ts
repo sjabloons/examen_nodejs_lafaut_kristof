@@ -94,7 +94,8 @@ export const putById = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const { title, code, language, tags, expiresIn } = req.body;
-        const snippets = await Snippet.findByIdAndUpdate(
+        const snippetOld = await Snippet.findById(id);
+        const snippetNew = await Snippet.findByIdAndUpdate(
             id,
             {
                 title,
@@ -105,8 +106,9 @@ export const putById = async (req: Request, res: Response) => {
             },
             { new: true }
         );
-        console.log(snippets);
-        res.status(200).json(snippets);
+        console.log("1", snippetOld);
+        console.log("2", snippetNew);
+        res.status(200).json(snippetNew);
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: "Internal Server Error putbyId" });
