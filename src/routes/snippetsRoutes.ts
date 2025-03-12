@@ -1,8 +1,8 @@
 import express from "express";
 
-import { postSnippets } from "../controllers/snippetsController";
+import { getSnippets, postSnippets } from "../controllers/snippetsController";
 
 const router = express.Router();
-router.post("/", postSnippets);
+router.post("/", postSnippets).get("/", getSnippets);
 
 export default router;
