@@ -105,6 +105,7 @@ export const putById = async (req: Request, res: Response) => {
             },
             { new: true }
         );
+        console.log(snippets);
         res.status(200).json(snippets);
     } catch (err) {
         console.log(err);
