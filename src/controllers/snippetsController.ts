@@ -71,8 +71,43 @@ export const getSnippetsById = async (req: Request, res: Response) => {
         const { id } = req.params;
         const snippets = await Snippet.findById(id);
         console.log(snippets);
+        res.status(200).json(snippets);
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: "Internal Server Error getbyId" });
+    }
+};
+
+export const deleteById = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const snippets = await Snippet.findByIdAndDelete(id);
+        console.log(snippets);
+        res.status(200).json(snippets);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: "Internal Server Error deletebyId" });
+    }
+};
+
+export const putById = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const { title, code, language, tags, expiresIn } = req.body;
+        const snippets = await Snippet.findByIdAndUpdate(
+            id,
+            {
+                title,
+                code,
+                language,
+                tags,
+                expiresIn,
+            },
+            { new: true }
+        );
+        res.status(200).json(snippets);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: "Internal Server Error putbyId" });
     }
 };
