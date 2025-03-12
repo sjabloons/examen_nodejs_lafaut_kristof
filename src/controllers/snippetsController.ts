@@ -4,9 +4,10 @@ import { Snippet } from "../models/snippetsModel";
 export const postSnippets = async (req: Request, res: Response) => {
     try {
         const { title, code, language, tags, expiresIn } = req.body;
+        const encodedCode = Buffer.from(code).toString("base64");
         const snippet = await Snippet.create({
             title,
-            code,
+            code: encodedCode,
             language,
             tags,
             expiresIn,
